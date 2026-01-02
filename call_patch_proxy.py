@@ -22,6 +22,7 @@ from aiohttp import web
 import json
 import logging
 import re
+import os
 import yaml
 import asyncio
 from datetime import datetime, timedelta
@@ -31,7 +32,7 @@ import uuid
 
 # === CONFIGURATION ===
 # Target server running your Qwen3-Coder model
-TARGET_HOST = "http://127.0.0.1:8080"   
+TARGET_HOST = os.getenv("TARGET_HOST", "http://127.0.0.1:8080")   
 # Port where this proxy will listen for incoming requests
 LISTEN_PORT = 7999                      
 # Logging level: DEBUG for full trace, INFO for production
